@@ -22,7 +22,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LabData</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Nurses" asp-action="Index">LabData</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,8 @@
                         <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-info" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Staff
-                                </a><div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">Doctor</a>
+                                </a><div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">Doctor</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Nurses" asp-action="Index">Nurse</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Receptionists" asp-action="Index">Receptionist</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Technicals" asp-action="Index">Technical Workers</a>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace Final___Lab2.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    //[Authorize(Roles = "Admin")]
     public class AdminHomeController : Controller
     {
         private readonly RoleManager<IdentityRole> rolemanager;
