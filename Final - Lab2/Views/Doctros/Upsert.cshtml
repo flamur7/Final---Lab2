@@ -1,5 +1,110 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model Final___Lab2.Models.Doctor
+
+<br />
+<h2 class="text-info">@(Model.Id!=0 ? "Edit" : "Create") Doctor</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        @if (Model.Id != 0)
+        {
+            <input type="hidden" asp-for="Id" />
+        }
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="NrPersonal"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NrPersonal" class="form-control" />
+                <span asp-validation-for="NrPersonal" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Emri"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Emri" class="form-control" />
+                <span asp-validation-for="Emri" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Mbiemri"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Mbiemri" class="form-control" />
+                <span asp-validation-for="Mbiemri" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Gender"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Number"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+        </div><div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Email"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Profesioni"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Profesioni" class="form-control" />
+                <span asp-validation-for="Profesioni" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Specalizimi"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Specalizimi" class="form-control" />
+                <span asp-validation-for="Specalizimi" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Titulli"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Titulli" class="form-control" />
+                <span asp-validation-for="Titulli" class="text-danger"></span>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <button type="submit" class="btn btn-primary form-control">
+                    @(Model.Id != 0 ? "Update" : "Create")
+                </button>
+            </div>
+            <div class="col-3">
+                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
 }

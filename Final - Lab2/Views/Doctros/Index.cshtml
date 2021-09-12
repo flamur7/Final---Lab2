@@ -1,5 +1,29 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿<br />
+<div class="container row p-0 m-0">
+    <div class="col-6">
+        <h2 class="text-danger">Doctor List</h2>
+    </div><br />
+    <div class="col-3 offset-3">
+        <a asp-action="Upsert" asp-controller="Doctors" class="btn btn-success form-control text-white">
+            Add New Doctor
+        </a>
+    </div>
+    <div class="col-12 border p-3">
+        <table id="DT_load" class="table table-hover table-dark table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th class="table-light">NrPersonal</th>
+                    <th class="table-light">Emri</th>
+                    <th class="table-light">Mbiemri</th>
+                    <th class="table-light">Gender</th>
+                    <th class="table-light"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/mjeku.js"></script>
 }
