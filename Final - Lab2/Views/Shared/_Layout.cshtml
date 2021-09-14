@@ -42,7 +42,11 @@
                         <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Pacienti
-                                </a>
+                                </a><div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Pacient" asp-action="Index">Add Pacient</a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Pacient" asp-action="Index">List</a>
+                         
+                                </div>
                         <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Analiza

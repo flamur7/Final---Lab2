@@ -15,5 +15,8 @@ namespace Final___Lab2.Models
         public DbSet<Nurse> Nurses { get; set; }
         public DbSet<Receptionist> Receptionists { get; set; }
         public DbSet<Technical> Technicals { get; set; }
+
+        public virtual DbSet<Pacient> Pacients { get; set; }
+        public virtual DbSet<Terapi>Terapis { get; set; }
     }
 }
