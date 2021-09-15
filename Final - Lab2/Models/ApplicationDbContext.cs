@@ -18,5 +18,7 @@ namespace Final___Lab2.Models
 
         public virtual DbSet<Pacient> Pacients { get; set; }
         public virtual DbSet<Terapi>Terapis { get; set; }
+        public virtual DbSet<Faktura> Fakturas { get; set; }
+        public virtual DbSet<Faturimi> Faturimis { get; set; }
     }
 }
