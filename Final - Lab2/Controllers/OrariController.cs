@@ -7,39 +7,36 @@ using System.Threading.Tasks;
 
 namespace Final___Lab2.Controllers
 {
-    public class FakturaController : Controller
+    public class OrariController : Controller
     {
         private readonly ApplicationDbContext _context;
-        
 
 
-        public FakturaController(ApplicationDbContext context)
+
+        public OrariController(ApplicationDbContext context)
         {
             _context = context;
         }
         public IActionResult Index()
         {
-            List<Faktura> fakturas;
-            fakturas = _context.Fakturas.ToList();
-            return View(fakturas);
+            List<Orari> oraris;
+            oraris = _context.Oraris.ToList();
+            return View(oraris);
         }
-        [HttpGet]
         public IActionResult Create()
         {
-            Faktura faktura = new Faktura();
+            Orari oraris = new Orari();
 
-            return View(faktura);
+            return View(oraris);
         }
 
         [HttpPost]
-        public IActionResult Create(Faktura faktura)
+        public IActionResult Create(Orari oraris)
         {
 
-            _context.Add(faktura);
+            _context.Add(oraris);
             _context.SaveChanges();
             return RedirectToAction("index");
         }
-
-       
     }
 }

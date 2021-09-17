@@ -12,8 +12,8 @@ namespace Final___Lab2.Models
         [Key]
         public int FaturimiId { get; set; }
 
-        [ForeignKey("Faktura")]
-        public int FakturaId { get; set; }
+        
+        
         public virtual Faktura Faktura { get; private set; }
 
         public string KohaPageses { get; set; }

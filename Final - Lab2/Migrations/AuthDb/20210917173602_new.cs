@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Final___Lab2.Migrations
+namespace Final___Lab2.Migrations.AuthDb
 {
-    public partial class r : Migration
+    public partial class @new : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

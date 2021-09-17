@@ -17,17 +17,17 @@ namespace Final___Lab2.Models
         public string Name { get; set; }
         [Required]
         public string LastName { get; set; }
-        
+
         public int Shuma { get; set; }
 
         public string Valuta { get; set; }
         public bool Completed { get; set; }
 
-        public virtual List<Faturimi> Faturimis { get; set; } = new List<Faturimi>();
+        public int PagesaId { get; set; }
+        public virtual Pagesa Pagesa { get; set; }
 
-        internal static void DeleteFaktura(int? id)
-        {
-            throw new NotImplementedException();
-        }
+        
+        public int FaturimiId { get; set; }
+        public virtual Faturimi Faturimi { get; set; }
     }
 }

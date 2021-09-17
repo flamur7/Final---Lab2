@@ -34,6 +34,9 @@ namespace Final___Lab2.Models
         public IFormFile ProfilePhoto { get; set; }
 
         public virtual Appointment Appointment { get; private set; }
-        
+        public virtual KontrollaMjeksore KontrollaMjeksore { get; private set; }
+        public virtual Analizat Analizat { get; private set; }
+
+        public virtual Pagesa Pagesa { get; set; }
     }
 }

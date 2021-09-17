@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace Final___Lab2.Models
         public int Id { get; set; }
         public string Paradite { get; set; }
         public string Pasdite { get; set; }
+
 
         public List<Doctor> Doctors { get; set; }
         public List<Nurse> Nurses { get; set; }

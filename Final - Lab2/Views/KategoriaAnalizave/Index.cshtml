@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Final___Lab2.Models.KategoritAnalizave>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-6">
+        <h2 class="text-danger">Lista Kategorive te Analizave</h2>
+    </div><br />
+<div class="col-3 offset-3">
+        <a asp-action="Create" asp-controller="KategoriaAnalizave" class="btn btn-success form-control text-white">
+            Shto Kategori te re
+        </a>
+</div>
+
+<br />
+<br />
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kategoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategoria)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

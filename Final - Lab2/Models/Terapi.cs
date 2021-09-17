@@ -21,5 +21,7 @@ namespace Final___Lab2.Models
 
         public string Kohezgjatja { get; set; }
 
+        public List<KontrollaMjeksore> KontrollaMjeksores { get; set; }
+
     }
 }

@@ -11,5 +11,8 @@ namespace Final___Lab2.Models
         public String OrariPushimit { get; set; }
         public int NrTermineve { get; set; }
         public virtual Orari Orari { get; private set; }
+
+        public List<Pagesa> Pagesas { get; set; }
+
     }
 }
