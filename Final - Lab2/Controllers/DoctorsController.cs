@@ -1,4 +1,5 @@
 ﻿using Final___Lab2.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Final___Lab2.Controllers
 {
+    [Authorize]
     public class DoctorsController : Controller
     {
         private readonly ApplicationDbContext _db;

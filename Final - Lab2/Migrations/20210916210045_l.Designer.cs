@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final___Lab2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210915220847_q1")]
-    partial class q1
+    [Migration("20210916210045_l")]
+    partial class l
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,6 +68,9 @@ namespace Final___Lab2.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Completed")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -106,9 +109,6 @@ namespace Final___Lab2.Migrations
                     b.Property<string>("KohaPageses")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PacientiId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("TerapiId")
                         .HasColumnType("int");
 
@@ -118,8 +118,6 @@ namespace Final___Lab2.Migrations
                     b.HasKey("FaturimiId");
 
                     b.HasIndex("FakturaId");
-
-                    b.HasIndex("PacientiId");
 
                     b.HasIndex("TerapiId");
 
@@ -310,12 +308,6 @@ namespace Final___Lab2.Migrations
                     b.HasOne("Final___Lab2.Models.Faktura", "Faktura")
                         .WithMany("Faturimis")
                         .HasForeignKey("FakturaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Final___Lab2.Models.Pacient", "Pacient")
-                        .WithMany()
-                        .HasForeignKey("PacientiId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

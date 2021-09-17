@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final___Lab2.Migrations.AuthDb
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20210914210806_h4")]
-    partial class h4
+    [Migration("20210917094749_q")]
+    partial class q
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

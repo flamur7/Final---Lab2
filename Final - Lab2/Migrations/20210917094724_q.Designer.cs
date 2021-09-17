@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final___Lab2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210915224930_q2")]
-    partial class q2
+    [Migration("20210917094724_q")]
+    partial class q
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -109,9 +109,6 @@ namespace Final___Lab2.Migrations
                     b.Property<string>("KohaPageses")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PacientiId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("TerapiId")
                         .HasColumnType("int");
 
@@ -121,8 +118,6 @@ namespace Final___Lab2.Migrations
                     b.HasKey("FaturimiId");
 
                     b.HasIndex("FakturaId");
-
-                    b.HasIndex("PacientiId");
 
                     b.HasIndex("TerapiId");
 
@@ -313,12 +308,6 @@ namespace Final___Lab2.Migrations
                     b.HasOne("Final___Lab2.Models.Faktura", "Faktura")
                         .WithMany("Faturimis")
                         .HasForeignKey("FakturaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Final___Lab2.Models.Pacient", "Pacient")
-                        .WithMany()
-                        .HasForeignKey("PacientiId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

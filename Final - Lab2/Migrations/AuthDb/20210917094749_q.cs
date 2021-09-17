@@ -2,7 +2,7 @@
 
 namespace Final___Lab2.Migrations.AuthDb
 {
-    public partial class h4 : Migration
+    public partial class q : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -12,9 +12,7 @@ namespace Final___Lab2.Models
         [Key]
         public int FaturimiId { get; set; }
 
-        [ForeignKey("Pacient")]
-        public int PacientiId { get; set; }
-        public virtual Pacient Pacient { get; private set; }
+        
 
         [ForeignKey("Faktura")]
         public int FakturaId { get; set; }

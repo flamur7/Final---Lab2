@@ -6,9 +6,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Final___Lab2.Controllers
 {
+    [Authorize]
     public class PacientController : Controller
     {
         private readonly ApplicationDbContext _context;
