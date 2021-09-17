@@ -7,7 +7,9 @@ namespace Final___Lab2.Models
 {
     public class Nurse : Person
     {
-        public String Orari { get; set; }
+        public String OrariPushimit { get; set; }
         public String Analizat { get; set; }
+
+        public virtual Orari Orari { get; private set; }
     }
 }

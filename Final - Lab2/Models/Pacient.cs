@@ -32,5 +32,8 @@ namespace Final___Lab2.Models
         [Display(Name = "Profile Photo")]
         [NotMapped]
         public IFormFile ProfilePhoto { get; set; }
+
+        public virtual Appointment Appointment { get; private set; }
+        
     }
 }

@@ -1,9 +1,44 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Final___Lab2</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210917114000_llll.cs" />
+    <Compile Remove="Migrations\20210917114000_llll.Designer.cs" />
+    <Compile Remove="Migrations\20210917114201_bn.cs" />
+    <Compile Remove="Migrations\20210917114201_bn.Designer.cs" />
+    <Compile Remove="Migrations\20210917114601_bb.cs" />
+    <Compile Remove="Migrations\20210917114601_bb.Designer.cs" />
+    <Compile Remove="Migrations\20210917114933_yyy.cs" />
+    <Compile Remove="Migrations\20210917114933_yyy.Designer.cs" />
+    <Compile Remove="Migrations\20210917135657_mm.cs" />
+    <Compile Remove="Migrations\20210917135657_mm.Designer.cs" />
+    <Compile Remove="Migrations\20210917135913_v.cs" />
+    <Compile Remove="Migrations\20210917135913_v.Designer.cs" />
+    <Compile Remove="Migrations\20210917140336_dad.cs" />
+    <Compile Remove="Migrations\20210917140336_dad.Designer.cs" />
+    <Compile Remove="Migrations\20210917142027_xc.cs" />
+    <Compile Remove="Migrations\20210917142027_xc.Designer.cs" />
+    <Compile Remove="Migrations\20210917142732_fdf.cs" />
+    <Compile Remove="Migrations\20210917142732_fdf.Designer.cs" />
+    <Compile Remove="Migrations\20210917144405_xz.cs" />
+    <Compile Remove="Migrations\20210917144405_xz.Designer.cs" />
+    <Compile Remove="Migrations\20210917145708_database.cs" />
+    <Compile Remove="Migrations\20210917145708_database.Designer.cs" />
+    <Compile Remove="Migrations\AuthDb\20210917111738_h.cs" />
+    <Compile Remove="Migrations\AuthDb\20210917111738_h.Designer.cs" />
+    <Compile Remove="Migrations\AuthDb\20210917113929_l.cs" />
+    <Compile Remove="Migrations\AuthDb\20210917113929_l.Designer.cs" />
+    <Compile Remove="Migrations\AuthDb\20210917114227_gd.cs" />
+    <Compile Remove="Migrations\AuthDb\20210917114227_gd.Designer.cs" />
+    <Compile Remove="Migrations\AuthDb\20210917115006_yyy.cs" />
+    <Compile Remove="Migrations\AuthDb\20210917115006_yyy.Designer.cs" />
+    <Compile Remove="Migrations\AuthDb\20210917135718_mm.cs" />
+    <Compile Remove="Migrations\AuthDb\20210917135718_mm.Designer.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BoldReports.AspNet.Core" Version="3.2.22" />

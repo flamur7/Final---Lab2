@@ -52,6 +52,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Completed)
             </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }, new { @class="btn btn-success"}) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class="btn btn-success"})
+            </td>
         </tr>
 }
     </tbody>

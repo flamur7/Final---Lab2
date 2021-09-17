@@ -9,7 +9,6 @@ namespace Final___Lab2.Models
 {
     public class Faktura
     {
-        public static IEnumerable<object> List { get; internal set; }
         [Key]
         public int Id { get; set; }
         [Required]
@@ -25,5 +24,10 @@ namespace Final___Lab2.Models
         public bool Completed { get; set; }
 
         public virtual List<Faturimi> Faturimis { get; set; } = new List<Faturimi>();
+
+        internal static void DeleteFaktura(int? id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -26,13 +26,13 @@ namespace Final___Lab2.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            Faktura pacient = new Faktura();
+            Faktura faktura = new Faktura();
 
 
-            pacient.Faturimis.Add(new Faturimi() { FaturimiId = 1 });
-            pacient.Faturimis.Add(new Faturimi() { FaturimiId = 2 });
+            faktura.Faturimis.Add(new Faturimi() { FaturimiId = 1 });
+            faktura.Faturimis.Add(new Faturimi() { FaturimiId = 2 });
 
-            return View(pacient);
+            return View(faktura);
         }
 
         [HttpPost]
@@ -44,5 +44,6 @@ namespace Final___Lab2.Controllers
             return RedirectToAction("index");
         }
 
+       
     }
 }

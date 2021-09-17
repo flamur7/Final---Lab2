@@ -9,5 +9,6 @@ namespace Final___Lab2.Models
     {
         public String Shkollimi { get; set; }
         public String Pervoja { get; set; }
+        public virtual Orari Orari { get; private set; }
     }
 }
