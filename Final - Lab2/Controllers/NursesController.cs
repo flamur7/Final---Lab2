@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Final___Lab2.Controllers
 {
-    [Authorize]
+    
     public class NursesController : Controller
     {
         private readonly ApplicationDbContext _db;

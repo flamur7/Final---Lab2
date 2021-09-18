@@ -34,8 +34,8 @@ namespace Final___Lab2.Controllers
             technical.OrariPunes.Add(new OrariPune() { OrariPuneId = 1 });
             technical.OrariPunes.Add(new OrariPune() { OrariPuneId = 2 });
             technical.OrariPunes.Add(new OrariPune() { OrariPuneId = 3 });
-            technical.Analizats.Add(new Analizat() { Id = 4 });
-            technical.Analizats.Add(new Analizat() { Id = 5 });
+            //technical.Analizats.Add(new Analizat() { Id = 4 });
+            //technical.Analizats.Add(new Analizat() { Id = 5 });
 
             return View(technical);
         }

@@ -1,23 +1,27 @@
-﻿@model IEnumerable<Final___Lab2.Models.KategoriaAnalizave>
+﻿@model IEnumerable<Final___Lab2.Models.Analizat>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Lista e Kategorive</h1>
+<h1>Lista e Analizave</h1>
+
 
 <table class="table">
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.KategoriaAnalizaveId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lloji)
+                @Html.DisplayNameFor(model => model.Emri)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rendesia)
+                @Html.DisplayNameFor(model => model.Pershkerimi)
             </th>
             <th></th>
         </tr>
@@ -26,13 +30,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.KategoriaAnalizaveId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lloji)
+                @Html.DisplayFor(modelItem => item.Emri)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rendesia)
+                @Html.DisplayFor(modelItem => item.Pershkerimi)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

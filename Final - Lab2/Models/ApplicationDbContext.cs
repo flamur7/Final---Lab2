@@ -23,11 +23,11 @@ namespace Final___Lab2.Models
         public virtual DbSet<KontrollaMjeksore> KontrollaMjeksores { get; set; }
         public virtual DbSet<Pagesa> Pagesas { get; set; }
         public virtual DbSet<Analizat> Analizats { get; set; }
-        public virtual DbSet<KategoritAnalizave> KategoritAnalizaves { get; set; }
         public virtual DbSet<FeedBack> FeedBacks { get; set; }
         public virtual DbSet<Detajet> Detajets { get; set; }
         public virtual DbSet<Appointment> Appointments { get; set; }
         public virtual DbSet<Doctor> Doctors { get; set; }
+        public virtual DbSet<KategoriaAnalizave> KategoriaAnalizaves { get; set; }
 
     }
 }

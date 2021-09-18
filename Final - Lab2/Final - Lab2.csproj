@@ -82,6 +82,16 @@
     <Compile Remove="Migrations\20210918174753_sass.Designer.cs" />
     <Compile Remove="Migrations\20210918174936_saq1.cs" />
     <Compile Remove="Migrations\20210918174936_saq1.Designer.cs" />
+    <Compile Remove="Migrations\20210918175228_012.cs" />
+    <Compile Remove="Migrations\20210918175228_012.Designer.cs" />
+    <Compile Remove="Migrations\20210918180627_022.cs" />
+    <Compile Remove="Migrations\20210918180627_022.Designer.cs" />
+    <Compile Remove="Migrations\20210918181324_00.cs" />
+    <Compile Remove="Migrations\20210918181324_00.Designer.cs" />
+    <Compile Remove="Migrations\20210918182502_j8.cs" />
+    <Compile Remove="Migrations\20210918182502_j8.Designer.cs" />
+    <Compile Remove="Migrations\20210918183821_test.cs" />
+    <Compile Remove="Migrations\20210918183821_test.Designer.cs" />
     <Compile Remove="Migrations\AuthDb\20210917111738_h.cs" />
     <Compile Remove="Migrations\AuthDb\20210917111738_h.Designer.cs" />
     <Compile Remove="Migrations\AuthDb\20210917113929_l.cs" />

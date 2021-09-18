@@ -1,34 +1,75 @@
-﻿@model Final___Lab2.Models.KategoritAnalizave
+﻿@model Final___Lab2.Models.KategoriaAnalizave
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Shto Kategori te Analizave</h1>
+<h1>Shto Kategorie te Analizave</h1>
+
+
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input disabled asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
+                <label asp-for="KategoriaAnalizaveId" class="control-label"></label>
+                <input asp-for="KategoriaAnalizaveId" class="form-control" />
+                <span asp-validation-for="KategoriaAnalizaveId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Kategoria" class="control-label"></label>
-                <input asp-for="Kategoria" class="form-control" />
-                <span asp-validation-for="Kategoria" class="text-danger"></span>
+                <label asp-for="Lloji" class="control-label"></label>
+                <input asp-for="Lloji" class="form-control" />
+                <span asp-validation-for="Lloji" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Rendesia" class="control-label"></label>
+                <input asp-for="Rendesia" class="form-control" />
+                <span asp-validation-for="Rendesia" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <h1>Analizat</h1>
+                <br />
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th style="text-align:center">
+                                    Emri
+                                </th>
+                                <th style="text-align:center">
+                                     Pershkerimi
+                                </th>
+                            </tr>
+                        </thead>
+                      <tbody>
+                            @*  @foreach (var item in Model.Terapis)*@
+                              @for (int i=0; i < Model.Analizats.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.EditorFor(x=> x.Analizats[i].Emri, new{htmlAttributes = new { @class = "form-control"}})
+                                            @*<input asp-for="@item.Semundje" class="form-control" />*@
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(x=> x.Analizats[i].Pershkerimi, new{htmlAttributes = new { @class = "form-control"}})
+                                            @*<input asp-for="@item.Barnat" class="form-control" />*@
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                     </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-secondary">&nbsp;Back&nbsp;</a>
             </div>
         </form>
     </div>
 </div>
 
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

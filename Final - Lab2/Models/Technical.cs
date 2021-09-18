@@ -11,7 +11,7 @@ namespace Final___Lab2.Models
         [Key]
         public int TechnicalId { get; set; }
         public virtual List<OrariPune> OrariPunes { get; set; } = new List<OrariPune>();
-        public virtual List<Analizat> Analizats { get; set; } = new List<Analizat>();
+        //public virtual List<Analizat> Analizats { get; set; } = new List<Analizat>();
         public int NrPersonal { get; set; }
         public string Emri { get; set; }
         public string Mbiemri { get; set; }

@@ -4,14 +4,16 @@ using Final___Lab2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Final___Lab2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210918180804_09")]
+    partial class _09
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,11 +28,11 @@ namespace Final___Lab2.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Emri")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("KategoriaAnalizaveId")
-                        .HasColumnType("int");
 
                     b.Property<int?>("PagesaId")
                         .HasColumnType("int");
@@ -38,11 +40,16 @@ namespace Final___Lab2.Migrations
                     b.Property<string>("Pershkerimi")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TechnicalId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("KategoriaAnalizaveId");
+                    b.HasIndex("DoctorId");
 
                     b.HasIndex("PagesaId");
+
+                    b.HasIndex("TechnicalId");
 
                     b.ToTable("Analizats");
                 });
@@ -208,24 +215,6 @@ namespace Final___Lab2.Migrations
                     b.HasKey("FeedBackId");
 
                     b.ToTable("FeedBacks");
-                });
-
-            modelBuilder.Entity("Final___Lab2.Models.KategoriaAnalizave", b =>
-                {
-                    b.Property<int>("KategoriaAnalizaveId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Lloji")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Rendesia")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("KategoriaAnalizaveId");
-
-                    b.ToTable("KategoriaAnalizaves");
                 });
 
             modelBuilder.Entity("Final___Lab2.Models.KontrollaMjeksore", b =>
@@ -507,15 +496,21 @@ namespace Final___Lab2.Migrations
 
             modelBuilder.Entity("Final___Lab2.Models.Analizat", b =>
                 {
-                    b.HasOne("Final___Lab2.Models.KategoriaAnalizave", "KategoriaAnalizave")
-                        .WithMany("Analizats")
-                        .HasForeignKey("KategoriaAnalizaveId")
+                    b.HasOne("Final___Lab2.Models.Doctor", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Final___Lab2.Models.Pagesa", null)
                         .WithMany("Analizats")
                         .HasForeignKey("PagesaId");
+
+                    b.HasOne("Final___Lab2.Models.Technical", "Technical")
+                        .WithMany("Analizats")
+                        .HasForeignKey("TechnicalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Final___Lab2.Models.Appointment", b =>

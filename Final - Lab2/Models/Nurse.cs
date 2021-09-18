@@ -11,8 +11,5 @@ namespace Final___Lab2.Models
         public String Analizat { get; set; }
 
         
-
-        public int AnalizaId { get; set; }
-        public virtual Analizat Analiza { get; set; }
     }
 }
