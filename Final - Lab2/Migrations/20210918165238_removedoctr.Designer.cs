@@ -4,14 +4,16 @@ using Final___Lab2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Final___Lab2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210918165238_removedoctr")]
+    partial class removedoctr
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,15 +64,10 @@ namespace Final___Lab2.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DoctorId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
                     b.HasKey("AppointmentId");
-
-                    b.HasIndex("DoctorId");
 
                     b.ToTable("Appointments");
                 });
@@ -99,40 +96,6 @@ namespace Final___Lab2.Migrations
                     b.HasIndex("FeedBackId");
 
                     b.ToTable("Detajets");
-                });
-
-            modelBuilder.Entity("Final___Lab2.Models.Doctor", b =>
-                {
-                    b.Property<int>("DoctorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Emri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
-
-                    b.Property<string>("Mbiemri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NrPersonal")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Number")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Specalizimi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DoctorId");
-
-                    b.ToTable("Doctors");
                 });
 
             modelBuilder.Entity("Final___Lab2.Models.Faktura", b =>
@@ -237,7 +200,7 @@ namespace Final___Lab2.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DoctorId")
+                    b.Property<int>("PagesaId")
                         .HasColumnType("int");
 
                     b.Property<string>("Pershkrimi")
@@ -248,7 +211,8 @@ namespace Final___Lab2.Migrations
 
                     b.HasKey("KontrollaMjesoreId");
 
-                    b.HasIndex("DoctorId");
+                    b.HasIndex("PagesaId")
+                        .IsUnique();
 
                     b.HasIndex("TerapiId");
 
@@ -525,15 +489,6 @@ namespace Final___Lab2.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Final___Lab2.Models.Appointment", b =>
-                {
-                    b.HasOne("Final___Lab2.Models.Doctor", "Doctor")
-                        .WithMany("Appointments")
-                        .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Final___Lab2.Models.Detajet", b =>
                 {
                     b.HasOne("Final___Lab2.Models.FeedBack", "FeedBack")
@@ -560,9 +515,9 @@ namespace Final___Lab2.Migrations
 
             modelBuilder.Entity("Final___Lab2.Models.KontrollaMjeksore", b =>
                 {
-                    b.HasOne("Final___Lab2.Models.Doctor", "Doctor")
-                        .WithMany("KontrollaMjeksores")
-                        .HasForeignKey("DoctorId")
+                    b.HasOne("Final___Lab2.Models.Pagesa", "Pagesa")
+                        .WithOne("KontrollaMjeksore")
+                        .HasForeignKey("Final___Lab2.Models.KontrollaMjeksore", "PagesaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -23,6 +23,6 @@ namespace Final___Lab2.Models
 
         public List<Analizat> Analizats { get; set; }
 
-        public virtual KontrollaMjeksore KontrollaMjeksore { get; set; }
+        
     }
 }

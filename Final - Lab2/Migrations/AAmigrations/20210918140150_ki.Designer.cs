@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final___Lab2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210918110427_saas")]
-    partial class saas
+    [Migration("20210918140150_ki")]
+    partial class ki
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -80,6 +80,32 @@ namespace Final___Lab2.Migrations
                     b.ToTable("Appointments");
                 });
 
+            modelBuilder.Entity("Final___Lab2.Models.Detajet", b =>
+                {
+                    b.Property<int>("DetajetId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Arsyja")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FeedBackId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Sherbimet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<short>("Vlersimi")
+                        .HasColumnType("smallint");
+
+                    b.HasKey("DetajetId");
+
+                    b.HasIndex("FeedBackId");
+
+                    b.ToTable("Detajets");
+                });
+
             modelBuilder.Entity("Final___Lab2.Models.Doctor", b =>
                 {
                     b.Property<int>("Id")
@@ -100,7 +126,7 @@ namespace Final___Lab2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(1)");
 
-                    b.Property<int?>("KontrollaMjeksoreId")
+                    b.Property<int?>("KontrollaMjeksoreKontrollaMjesoreId")
                         .HasColumnType("int");
 
                     b.Property<string>("Mbiemri")
@@ -125,7 +151,7 @@ namespace Final___Lab2.Migrations
 
                     b.HasIndex("AppointmentId");
 
-                    b.HasIndex("KontrollaMjeksoreId");
+                    b.HasIndex("KontrollaMjeksoreKontrollaMjesoreId");
 
                     b.ToTable("Doctors");
                 });
@@ -192,6 +218,24 @@ namespace Final___Lab2.Migrations
                     b.ToTable("Faturimis");
                 });
 
+            modelBuilder.Entity("Final___Lab2.Models.FeedBack", b =>
+                {
+                    b.Property<int>("FeedBackId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Field")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FeedBackId");
+
+                    b.ToTable("FeedBacks");
+                });
+
             modelBuilder.Entity("Final___Lab2.Models.KategoritAnalizave", b =>
                 {
                     b.Property<int>("Id")
@@ -209,7 +253,7 @@ namespace Final___Lab2.Migrations
 
             modelBuilder.Entity("Final___Lab2.Models.KontrollaMjeksore", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("KontrollaMjesoreId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -223,7 +267,7 @@ namespace Final___Lab2.Migrations
                     b.Property<int?>("TerapiId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("KontrollaMjesoreId");
 
                     b.HasIndex("PagesaId")
                         .IsUnique();
@@ -324,7 +368,7 @@ namespace Final___Lab2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(1)");
 
-                    b.Property<int?>("KontrollaMjeksoreId")
+                    b.Property<int?>("KontrollaMjeksoreKontrollaMjesoreId")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
@@ -351,7 +395,7 @@ namespace Final___Lab2.Migrations
 
                     b.HasIndex("AnalizatId");
 
-                    b.HasIndex("KontrollaMjeksoreId");
+                    b.HasIndex("KontrollaMjeksoreKontrollaMjesoreId");
 
                     b.HasIndex("PagesaId");
 
@@ -521,6 +565,15 @@ namespace Final___Lab2.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Final___Lab2.Models.Detajet", b =>
+                {
+                    b.HasOne("Final___Lab2.Models.FeedBack", "FeedBack")
+                        .WithMany("Detajets")
+                        .HasForeignKey("FeedBackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Final___Lab2.Models.Doctor", b =>
                 {
                     b.HasOne("Final___Lab2.Models.Appointment", "Appointment")
@@ -529,7 +582,7 @@ namespace Final___Lab2.Migrations
 
                     b.HasOne("Final___Lab2.Models.KontrollaMjeksore", "KontrollaMjeksore")
                         .WithMany("Doctors")
-                        .HasForeignKey("KontrollaMjeksoreId");
+                        .HasForeignKey("KontrollaMjeksoreKontrollaMjesoreId");
                 });
 
             modelBuilder.Entity("Final___Lab2.Models.Faktura", b =>
@@ -589,8 +642,8 @@ namespace Final___Lab2.Migrations
                         .HasForeignKey("AnalizatId");
 
                     b.HasOne("Final___Lab2.Models.KontrollaMjeksore", "KontrollaMjeksore")
-                        .WithMany("Pacients")
-                        .HasForeignKey("KontrollaMjeksoreId");
+                        .WithMany()
+                        .HasForeignKey("KontrollaMjeksoreKontrollaMjesoreId");
 
                     b.HasOne("Final___Lab2.Models.Pagesa", "Pagesa")
                         .WithMany()

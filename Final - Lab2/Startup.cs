@@ -68,7 +68,7 @@ namespace Final___Lab2
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Doctors}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

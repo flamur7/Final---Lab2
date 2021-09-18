@@ -14,13 +14,13 @@ namespace Final___Lab2.Models
 
         public string Pershkrimi { get; set; }
 
-        
+        [ForeignKey("Doctor")]
+        public int DoctorId { get; set; }
+        public virtual Doctor Doctor { get; private set; }
 
 
-        public List<Doctor> Doctors { get; set; }
+
         public virtual Terapi Terapi { get; set; }
 
-        public int PagesaId { get; set; }
-        public virtual Pagesa Pagesa { get; set; }
     }
 }

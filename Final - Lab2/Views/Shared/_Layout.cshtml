@@ -34,11 +34,10 @@
                                 <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Staff
                                 </a><div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">Doctor</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Nurses" asp-action="Index">Nurse</a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Doctor" asp-action="Index">Doctor</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Receptionists" asp-action="Index">Receptionist</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Technical" asp-action="Index">Technical Workers</a>
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Orari" asp-action="Index">Orari</a>
                                 </div>
                                 
                         <li class="nav-item dropdown">
@@ -57,10 +56,9 @@
                                 </div>
                         <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Terminet
+                                    Appointment
                                 </a><div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Termines" asp-action="Create">Shto Pacient</a>
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Pacient" asp-action="Index">Lista Pacientve</a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Appointment" asp-action="Index">Lista Appointmentve</a>
                          
                                 </div>
                         <li class="nav-item dropdown">
@@ -70,6 +68,13 @@
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Faktura" asp-action="Create">Shto Faktura</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Faktura" asp-action="Index">Lista Fakturave</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Faktura" asp-action="Index">Pagesa Online</a>
+                         
+                                </div>
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    FeedBack
+                                </a><div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="FeedBack" asp-action="Index">Shto FeedBack</a>
                          
                                 </div>
                     </ul>

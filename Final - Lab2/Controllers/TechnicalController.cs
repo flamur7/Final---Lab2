@@ -46,7 +46,7 @@ namespace Final___Lab2.Controllers
             
 
             _context.Add(technical);
-            _context.Add(technical);
+            
             _context.SaveChanges();
             return RedirectToAction("index");
         }

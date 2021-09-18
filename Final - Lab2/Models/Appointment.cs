@@ -10,21 +10,19 @@ namespace Final___Lab2.Models
     public class Appointment
     {
         [Key]
-        public int Id { get; set; }
-        public virtual List<Analizat> Analizats { get; set; } = new List<Analizat>();
+        public int AppointmentId { get; set; }
+
+        [ForeignKey("Doctor")]
+        public int DoctorId { get; set; }
+        public virtual Doctor Doctor { get; private set; }
 
         [Display(Name = "Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
+        public DateTime Time { get; set; }
 
-
-        public int PacientId { get; set; }
-        public virtual Pacient Pacient { get; set; }
-        public List<Doctor> Doctors { get; set; }
-        public List<Receptionist> Receptionists { get; set; }
-
-
+        
     }
 }

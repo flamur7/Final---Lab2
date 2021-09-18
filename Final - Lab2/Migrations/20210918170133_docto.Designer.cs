@@ -4,14 +4,16 @@ using Final___Lab2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Final___Lab2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210918170133_docto")]
+    partial class docto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -237,7 +239,7 @@ namespace Final___Lab2.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DoctorId")
+                    b.Property<int>("PagesaId")
                         .HasColumnType("int");
 
                     b.Property<string>("Pershkrimi")
@@ -248,7 +250,8 @@ namespace Final___Lab2.Migrations
 
                     b.HasKey("KontrollaMjesoreId");
 
-                    b.HasIndex("DoctorId");
+                    b.HasIndex("PagesaId")
+                        .IsUnique();
 
                     b.HasIndex("TerapiId");
 
@@ -560,9 +563,9 @@ namespace Final___Lab2.Migrations
 
             modelBuilder.Entity("Final___Lab2.Models.KontrollaMjeksore", b =>
                 {
-                    b.HasOne("Final___Lab2.Models.Doctor", "Doctor")
-                        .WithMany("KontrollaMjeksores")
-                        .HasForeignKey("DoctorId")
+                    b.HasOne("Final___Lab2.Models.Pagesa", "Pagesa")
+                        .WithOne("KontrollaMjeksore")
+                        .HasForeignKey("Final___Lab2.Models.KontrollaMjeksore", "PagesaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

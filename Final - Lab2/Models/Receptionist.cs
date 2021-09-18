@@ -7,7 +7,7 @@ namespace Final___Lab2.Models
 {
     public class Receptionist : Person
     {
-        public virtual Appointment Appointment { get; set; }
+        //public virtual Appointment Appointment { get; set; }
         public String OrariPushimit { get; set; }
         public int NrTermineve { get; set; }
         
