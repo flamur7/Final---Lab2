@@ -13,6 +13,7 @@ namespace Final___Lab2.Models
         public int Id { get; set; }
         [Required]
         public int NrPersonal { get; set; }
+        
         [Required]
         public string Name { get; set; }
         [Required]
@@ -24,10 +25,9 @@ namespace Final___Lab2.Models
         public bool Completed { get; set; }
 
         public int PagesaId { get; set; }
-        public virtual Pagesa Pagesa { get; set; }
 
         
-        public int FaturimiId { get; set; }
-        public virtual Faturimi Faturimi { get; set; }
+        
+        
     }
 }

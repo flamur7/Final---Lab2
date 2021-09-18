@@ -28,6 +28,8 @@ namespace Final___Lab2.Controllers
         {
             Faktura faktura = new Faktura();
 
+            
+
             return View(faktura);
         }
 

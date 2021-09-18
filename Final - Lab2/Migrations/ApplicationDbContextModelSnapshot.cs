@@ -32,17 +32,12 @@ namespace Final___Lab2.Migrations
                     b.Property<int>("KategoriaAnalizaveId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PagesaId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Pershkerimi")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("KategoriaAnalizaveId");
-
-                    b.HasIndex("PagesaId");
 
                     b.ToTable("Analizats");
                 });
@@ -140,9 +135,6 @@ namespace Final___Lab2.Migrations
                     b.Property<bool>("Completed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("FaturimiId")
-                        .HasColumnType("int");
-
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -165,31 +157,7 @@ namespace Final___Lab2.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FaturimiId")
-                        .IsUnique();
-
-                    b.HasIndex("PagesaId")
-                        .IsUnique();
-
                     b.ToTable("Fakturas");
-                });
-
-            modelBuilder.Entity("Final___Lab2.Models.Faturimi", b =>
-                {
-                    b.Property<int>("FaturimiId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Kestet")
-                        .HasColumnType("int");
-
-                    b.Property<string>("KohaPageses")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("FaturimiId");
-
-                    b.ToTable("Faturimis");
                 });
 
             modelBuilder.Entity("Final___Lab2.Models.FeedBack", b =>
@@ -507,10 +475,6 @@ namespace Final___Lab2.Migrations
                         .HasForeignKey("KategoriaAnalizaveId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Final___Lab2.Models.Pagesa", null)
-                        .WithMany("Analizats")
-                        .HasForeignKey("PagesaId");
                 });
 
             modelBuilder.Entity("Final___Lab2.Models.Appointment", b =>
@@ -527,21 +491,6 @@ namespace Final___Lab2.Migrations
                     b.HasOne("Final___Lab2.Models.FeedBack", "FeedBack")
                         .WithMany("Detajets")
                         .HasForeignKey("FeedBackId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Final___Lab2.Models.Faktura", b =>
-                {
-                    b.HasOne("Final___Lab2.Models.Faturimi", "Faturimi")
-                        .WithOne("Faktura")
-                        .HasForeignKey("Final___Lab2.Models.Faktura", "FaturimiId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Final___Lab2.Models.Pagesa", "Pagesa")
-                        .WithOne("Faktura")
-                        .HasForeignKey("Final___Lab2.Models.Faktura", "PagesaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -592,7 +541,7 @@ namespace Final___Lab2.Migrations
 
             modelBuilder.Entity("Final___Lab2.Models.Pagesa", b =>
                 {
-                    b.HasOne("Final___Lab2.Models.Receptionist", "Receptionist")
+                    b.HasOne("Final___Lab2.Models.Receptionist", null)
                         .WithMany("Pagesas")
                         .HasForeignKey("ReceptionistId");
                 });
