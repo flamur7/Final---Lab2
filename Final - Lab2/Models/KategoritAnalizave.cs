@@ -10,6 +10,7 @@ namespace Final___Lab2.Models
     {
         [Key]
         public int Id { get; set; }
+
         public string Kategoria { get; set; }
 
 

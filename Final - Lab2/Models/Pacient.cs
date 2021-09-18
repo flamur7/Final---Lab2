@@ -25,6 +25,7 @@ namespace Final___Lab2.Models
 
 
         public virtual List<Terapi> Terapis { get; set; } = new List<Terapi>();
+        
 
         public string PhotoUrl { get; set; }
 
