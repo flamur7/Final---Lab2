@@ -3,7 +3,7 @@
 <head>
    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SMISrival</title>
+    <title>@ViewData["Title"] - Lab-Data</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -34,8 +34,8 @@
                                 <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Staff
                                 </a><div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Nurses" asp-action="Index">Nurse</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Doctor" asp-action="Index">Doctor</a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Nurses" asp-action="Index">Nurse</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Receptionists" asp-action="Index">Receptionist</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Technical" asp-action="Index">Technical Workers</a>
                                 </div>
@@ -70,7 +70,8 @@
                                 </a><div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Faktura" asp-action="Create">Shto Faktura</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Faktura" asp-action="Index">Lista Fakturave</a>
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Faktura" asp-action="Index">Pagesa Online</a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Pagesa" asp-action="Create">Pagesa Online</a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Pagesa" asp-action="Index">Lista Online</a>
                          
                                 </div>
                                 <li class="nav-item dropdown">

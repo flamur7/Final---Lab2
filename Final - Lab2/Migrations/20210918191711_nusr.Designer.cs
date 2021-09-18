@@ -4,14 +4,16 @@ using Final___Lab2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Final___Lab2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210918191711_nusr")]
+    partial class nusr
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -251,51 +253,6 @@ namespace Final___Lab2.Migrations
                     b.HasIndex("TerapiId");
 
                     b.ToTable("KontrollaMjeksores");
-                });
-
-            modelBuilder.Entity("Final___Lab2.Models.Nurse", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Analizat")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Emri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
-
-                    b.Property<string>("Mbiemri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NrPersonal")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Number")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OrariPuneId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OrariPushimit")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Profesioni")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrariPuneId");
-
-                    b.ToTable("Nurses");
                 });
 
             modelBuilder.Entity("Final___Lab2.Models.OrariPune", b =>
@@ -557,13 +514,6 @@ namespace Final___Lab2.Migrations
                     b.HasOne("Final___Lab2.Models.Terapi", "Terapi")
                         .WithMany("KontrollaMjeksores")
                         .HasForeignKey("TerapiId");
-                });
-
-            modelBuilder.Entity("Final___Lab2.Models.Nurse", b =>
-                {
-                    b.HasOne("Final___Lab2.Models.OrariPune", null)
-                        .WithMany("Nurses")
-                        .HasForeignKey("OrariPuneId");
                 });
 
             modelBuilder.Entity("Final___Lab2.Models.OrariPune", b =>

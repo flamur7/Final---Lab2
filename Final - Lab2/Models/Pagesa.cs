@@ -17,11 +17,7 @@ namespace Final___Lab2.Models
 
         //public int PacientId { get; set; }
         //public virtual Pacient Pacient { get; set; }
-        public virtual Receptionist Receptionist { get; set; }
-
-        public virtual Faktura Faktura { get; set; }
-
-        public List<Analizat> Analizats { get; set; }
+       
 
         
     }

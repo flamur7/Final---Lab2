@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Final___Lab2.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,41 @@ namespace Final___Lab2.Controllers
 {
     public class PagesaController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public PagesaController(ApplicationDbContext context)
+        {
+            _context = context;
+
+
+        }
         public IActionResult Index()
         {
-            return View();
+            List<Pagesa> pagesas;
+            pagesas = _context.Pagesas.ToList();
+            return View(pagesas);
+        }
+        public IActionResult Create()
+        {
+            Pagesa pagesa = new Pagesa();
+
+
+            //appointment.Doctors.Add(new Doctor() { Id = 1 });
+            //appointment.Doctors.Add(new Doctor() { Id = 2 });
+
+
+            return View(pagesa);
+        }
+        [HttpPost]
+        public IActionResult Create(Pagesa pagesa)
+        {
+
+
+
+            _context.Add(pagesa);
+
+            _context.SaveChanges();
+            return RedirectToAction("index");
         }
     }
 }
