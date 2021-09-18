@@ -4,14 +4,16 @@ using Final___Lab2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Final___Lab2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210918100852_j")]
+    partial class j
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,9 +28,6 @@ namespace Final___Lab2.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AppointmentId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Emri")
                         .HasColumnType("nvarchar(max)");
 
@@ -41,18 +40,11 @@ namespace Final___Lab2.Migrations
                     b.Property<string>("Pershkerimi")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TechnicalId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("AppointmentId");
 
                     b.HasIndex("KategoritAnalizaveId");
 
                     b.HasIndex("PagesaId");
-
-                    b.HasIndex("TechnicalId");
 
                     b.ToTable("Analizats");
                 });
@@ -298,12 +290,7 @@ namespace Final___Lab2.Migrations
                     b.Property<string>("Koha")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TechnicalId")
-                        .HasColumnType("int");
-
                     b.HasKey("OrariPuneId");
-
-                    b.HasIndex("TechnicalId");
 
                     b.ToTable("OrariPunes");
                 });
@@ -432,37 +419,6 @@ namespace Final___Lab2.Migrations
                     b.ToTable("Receptionists");
                 });
 
-            modelBuilder.Entity("Final___Lab2.Models.Technical", b =>
-                {
-                    b.Property<int>("TechnicalId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Emri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
-
-                    b.Property<string>("Mbiemri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NrPersonal")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Pervoja")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Shkollimi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TechnicalId");
-
-                    b.ToTable("Technicals");
-                });
-
             modelBuilder.Entity("Final___Lab2.Models.Terapi", b =>
                 {
                     b.Property<int>("TerapiId")
@@ -491,10 +447,6 @@ namespace Final___Lab2.Migrations
 
             modelBuilder.Entity("Final___Lab2.Models.Analizat", b =>
                 {
-                    b.HasOne("Final___Lab2.Models.Appointment", null)
-                        .WithMany("Analizats")
-                        .HasForeignKey("AppointmentId");
-
                     b.HasOne("Final___Lab2.Models.KategoritAnalizave", "KategoritAnalizave")
                         .WithMany("Analizats")
                         .HasForeignKey("KategoritAnalizaveId");
@@ -502,12 +454,6 @@ namespace Final___Lab2.Migrations
                     b.HasOne("Final___Lab2.Models.Pagesa", "Pagesa")
                         .WithMany("Analizats")
                         .HasForeignKey("PagesaId");
-
-                    b.HasOne("Final___Lab2.Models.Technical", "Technical")
-                        .WithMany("Analizats")
-                        .HasForeignKey("TechnicalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Final___Lab2.Models.Appointment", b =>
@@ -569,15 +515,6 @@ namespace Final___Lab2.Migrations
                     b.HasOne("Final___Lab2.Models.OrariPune", null)
                         .WithMany("Nurses")
                         .HasForeignKey("OrariPuneId");
-                });
-
-            modelBuilder.Entity("Final___Lab2.Models.OrariPune", b =>
-                {
-                    b.HasOne("Final___Lab2.Models.Technical", "Technical")
-                        .WithMany("OrariPunes")
-                        .HasForeignKey("TechnicalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Final___Lab2.Models.Pacient", b =>

@@ -10,7 +10,7 @@ namespace Final___Lab2.Models
         public String OrariPushimit { get; set; }
         public String Analizat { get; set; }
 
-        public virtual Orari Orari { get; private set; }
+        
 
         public int AnalizaId { get; set; }
         public virtual Analizat Analiza { get; set; }

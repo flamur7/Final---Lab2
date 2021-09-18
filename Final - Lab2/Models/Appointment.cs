@@ -11,6 +11,7 @@ namespace Final___Lab2.Models
     {
         [Key]
         public int Id { get; set; }
+        public virtual List<Analizat> Analizats { get; set; } = new List<Analizat>();
 
         [Display(Name = "Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]

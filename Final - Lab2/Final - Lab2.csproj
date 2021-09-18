@@ -44,6 +44,10 @@
     <Compile Remove="Migrations\20210917171021_sdaa.Designer.cs" />
     <Compile Remove="Migrations\20210917172340_he.cs" />
     <Compile Remove="Migrations\20210917172340_he.Designer.cs" />
+    <Compile Remove="Migrations\20210918100630_sss.cs" />
+    <Compile Remove="Migrations\20210918100630_sss.Designer.cs" />
+    <Compile Remove="Migrations\20210918101522_vc.cs" />
+    <Compile Remove="Migrations\20210918101522_vc.Designer.cs" />
     <Compile Remove="Migrations\AuthDb\20210917111738_h.cs" />
     <Compile Remove="Migrations\AuthDb\20210917111738_h.Designer.cs" />
     <Compile Remove="Migrations\AuthDb\20210917113929_l.cs" />

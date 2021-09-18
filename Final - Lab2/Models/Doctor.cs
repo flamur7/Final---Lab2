@@ -9,7 +9,7 @@ namespace Final___Lab2.Models
     {
         public virtual Appointment Appointment { get; set; }
         public virtual KontrollaMjeksore KontrollaMjeksore { get; set; }
-        public virtual Orari Orari { get; private set; }
+       
         public String Specalizimi { get; set; }
         public String Titulli { get; set; }
     }
