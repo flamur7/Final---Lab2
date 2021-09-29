@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Final___Lab2.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin,Receotionist")]
     public class TechnicalController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -49,6 +50,21 @@ namespace Final___Lab2.Controllers
 
             _context.Add(technical);
             
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            Technical technical = _context.Technicals.Where(p => p.TechnicalId == Id).FirstOrDefault();
+            return View(technical);
+        }
+        [HttpPost]
+        public IActionResult Edit(Technical technical)
+        {
+            _context.Attach(technical);
+            _context.Entry(technical).State = EntityState.Modified;
             _context.SaveChanges();
             return RedirectToAction("index");
         }

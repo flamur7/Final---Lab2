@@ -19,5 +19,7 @@ namespace Final___Lab2.Models
         public int Number { get; set; }
         public string Email { get; set; }
         public string Specalizimi { get; set; }
+        
+        public string Pershkrimi { get; set; }
     }
 }

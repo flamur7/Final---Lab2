@@ -10,8 +10,8 @@
 <p>
     <a asp-action="Create" class="btn btn-danger">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-bordered border-dark">
+    <thead class="thead-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.TechnicalId)
@@ -62,11 +62,12 @@
                 @Html.DisplayFor(modelItem => item.Shkollimi)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new {id=item.TechnicalId}, new { @class = "btn btn-success", @style = "color:white" })
             </td>
         </tr>
 }
     </tbody>
 </table>
+@section Styles{
+    <link rel="stylesheet" href="~/css/keyframe.css" />
+}

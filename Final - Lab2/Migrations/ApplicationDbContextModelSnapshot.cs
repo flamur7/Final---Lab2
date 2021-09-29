@@ -117,6 +117,9 @@ namespace Final___Lab2.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
+                    b.Property<string>("Pershkrimi")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Specalizimi")
                         .HasColumnType("nvarchar(max)");
 
@@ -350,8 +353,8 @@ namespace Final___Lab2.Migrations
                     b.Property<string>("CardHolder")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("CardNumber")
-                        .HasColumnType("bigint");
+                    b.Property<int>("CardNumber")
+                        .HasColumnType("int");
 
                     b.Property<bool>("Confirmation")
                         .HasColumnType("bit");

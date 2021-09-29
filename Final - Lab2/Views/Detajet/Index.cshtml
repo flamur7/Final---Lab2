@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Final___Lab2.Models.Detajet>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Vlersimet</h1>
+
+<br />
+<hr>
+<hr />
+<table class="table table-bordered border-dark">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DetajetId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeedBackId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sherbimet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arsyja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vlersimi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DetajetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedBackId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sherbimet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arsyja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vlersimi)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Styles{
+    <link rel="stylesheet" href="~/css/keyframe.css" />
+}

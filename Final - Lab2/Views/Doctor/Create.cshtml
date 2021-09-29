@@ -51,6 +51,10 @@
                 <label asp-for="Specalizimi" class="control-label"></label>
                 <input asp-for="Specalizimi" class="form-control" />
                 <span asp-validation-for="Specalizimi" class="text-danger"></span>
+            </div><div class="form-group">
+                <label asp-for="Pershkrimi" class="control-label"></label>
+                <input asp-for="Pershkrimi" class="form-control" />
+                <span asp-validation-for="Pershkrimi" class="text-danger"></span>
             </div>
 
             <div class="col-md-12">
@@ -121,4 +125,7 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+@section Styles{
+    <link rel="stylesheet" href="~/css/keyframe.css" />
 }

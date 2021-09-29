@@ -12,7 +12,7 @@ namespace Final___Lab2.Models
         public int Id { get; set; }
 
         public string CardHolder { get; set; }
-        public long CardNumber { get; set; }
+        public int CardNumber { get; set; }
         public bool Confirmation { get; set; }
 
         //public int PacientId { get; set; }

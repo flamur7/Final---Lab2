@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Final___Lab2.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin,Doctor,User,Nurses,Receotionist")]
     public class AnalizaController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,27 +26,6 @@ namespace Final___Lab2.Controllers
             analizats = _context.Analizats.ToList();
             return View(analizats);
         }
-        public IActionResult Create()
-        {
-            Analizat analizat = new Analizat();
-
-
-            //appointment.Doctors.Add(new Doctor() { Id = 1 });
-            //appointment.Doctors.Add(new Doctor() { Id = 2 });
-
-
-            return View(analizat);
-        }
-        [HttpPost]
-        public IActionResult Create(Analizat analizat)
-        {
-
-
-
-            _context.Add(analizat);
-
-            _context.SaveChanges();
-            return RedirectToAction("index");
-        }
+       
     }
 }

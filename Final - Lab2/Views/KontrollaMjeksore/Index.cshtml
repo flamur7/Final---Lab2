@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Final___Lab2.Models.KontrollaMjeksore>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<table class="table table-bordered border-dark">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KontrollaMjesoreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pershkrimi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorId)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontrollaMjesoreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pershkrimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorId)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
+@section Styles{
+    <link rel="stylesheet" href="~/css/keyframe.css" />
+}

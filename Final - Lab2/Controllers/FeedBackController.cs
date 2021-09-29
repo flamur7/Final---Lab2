@@ -1,6 +1,7 @@
 ﻿using Final___Lab2.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,5 +46,43 @@ namespace Final___Lab2.Controllers
             _context.SaveChanges();
             return RedirectToAction("index");
         }
+
+       [HttpGet]
+       public IActionResult Edit(int Id)
+        {
+            FeedBack feedBack = _context.FeedBacks.Where(p => p.FeedBackId == Id).FirstOrDefault();
+            return View(feedBack);
+        }
+        [HttpPost]
+        public IActionResult Edit (FeedBack feedBack)
+        {
+            _context.Attach(feedBack);
+            _context.Entry(feedBack).State = EntityState.Modified;
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+
+        //[HttpGet]
+        //public IActionResult Delete(int Id)
+        //{
+        //    FeedBack feedBack = _context.FeedBacks
+        //        .Include(p =>p.Detajets)
+        //        .Where(p => p.FeedBackId == Id).FirstOrDefault();
+        //    return View(feedBack);
+        //}
+        //[HttpPost]
+        //public IActionResult Delete(FeedBack feedBack)
+        //{
+            
+            
+
+        //    _context.Attach(feedBack);
+        //    _context.Entry(feedBack).State = EntityState.Deleted;
+        //    _context.SaveChanges();
+        //    return RedirectToAction("index");
+        //}
+
+
+
     }
 }

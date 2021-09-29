@@ -8,8 +8,8 @@
 <h1>Lista e Analizave</h1>
 
 
-<table class="table">
-    <thead>
+<table class="table table-bordered border-dark">
+    <thead class="thead-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Id)
@@ -46,3 +46,6 @@
 }
     </tbody>
 </table>
+@section Styles{
+    <link rel="stylesheet" href="~/css/keyframe.css" />
+}

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Final___Lab2.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin,Doctor,Receotionist")]
     public class NursesController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -25,7 +25,7 @@ namespace Final___Lab2.Controllers
             return View();
         }
 
-
+        
         public IActionResult Upsert(int? id)
         {
             Nurse = new Nurse();
@@ -44,8 +44,7 @@ namespace Final___Lab2.Controllers
         }
 
         public IActionResult Detail(int? id)
-        {
-            Nurse = new Nurse();
+        { Nurse = new Nurse();
             if (id == null)
             {
                 //create
@@ -59,6 +58,7 @@ namespace Final___Lab2.Controllers
             }
             return View(Nurse);
         }
+           
 
 
         [HttpPost]
@@ -111,7 +111,7 @@ namespace Final___Lab2.Controllers
             return Json(new { data = await _db.Nurses.ToListAsync() });
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {

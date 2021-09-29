@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Final___Lab2.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin,Doctor,User,Nurses,Receotionist")]
     public class DoctorController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -29,6 +30,7 @@ namespace Final___Lab2.Controllers
             return View(doctors);
         }
 
+        [Authorize(Roles = "Admin,Doctor,User,Receotionist")]
         public IActionResult Create()
         {
             Doctor doctor = new Doctor();
@@ -52,5 +54,23 @@ namespace Final___Lab2.Controllers
             _context.SaveChanges();
             return RedirectToAction("index");
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            Doctor doctor = _context.Doctors.Where(p => p.DoctorId == Id).FirstOrDefault();
+            return View(doctor);
+        }
+        [HttpPost]
+        public IActionResult Edit(Doctor doctor)
+        {
+            _context.Attach(doctor);
+            _context.Entry(doctor).State = EntityState.Modified;
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+
+        
     }
 }

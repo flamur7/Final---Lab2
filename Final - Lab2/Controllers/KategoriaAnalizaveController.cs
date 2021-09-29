@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Final___Lab2.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin,Doctor,User,Nurses,Receotionist")]
     public class KategoriaAnalizaveController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -28,7 +29,7 @@ namespace Final___Lab2.Controllers
             kategoriaAnalizaves = _context.KategoriaAnalizaves.ToList();
             return View(kategoriaAnalizaves);
         }
-
+        [Authorize(Roles = "Admin,Doctor")]
         public IActionResult Create()
         {
             KategoriaAnalizave kategoriaAnalizave = new KategoriaAnalizave();
@@ -48,6 +49,21 @@ namespace Final___Lab2.Controllers
 
 
             _context.Add(kategoriaAnalizave);
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            KategoriaAnalizave kategoriaAnalizave = _context.KategoriaAnalizaves.Where(p => p.KategoriaAnalizaveId == Id).FirstOrDefault();
+            return View(kategoriaAnalizave);
+        }
+        [HttpPost]
+        public IActionResult Edit(KategoriaAnalizave kategoriaAnalizave)
+        {
+            _context.Attach(kategoriaAnalizave);
+            _context.Entry(kategoriaAnalizave).State = EntityState.Modified;
             _context.SaveChanges();
             return RedirectToAction("index");
         }

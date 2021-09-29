@@ -6,9 +6,12 @@
 
 <h1>Lista Pacienteve</h1>
 
-<table class="table">
-    <thead>
+<table class="table table-bordered border-dark">
+    <thead class="thead-dark">
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.NrPersonal)
             </th>
@@ -30,6 +33,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.Id)
+            </th>
             <td>
                 @Html.DisplayFor(modelItem => item.NrPersonal)
             </td>
@@ -46,11 +52,14 @@
                 @Html.DisplayFor(modelItem => item.Note)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new {id=item.Id}, new { @class = "btn btn-success", @style = "color:white" })
+
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/keyframe.css" />
+}

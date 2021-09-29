@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace Final___Lab2.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin,Doctor,Nurses,Receotionist")]
     public class PacientController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -29,6 +30,8 @@ namespace Final___Lab2.Controllers
             pacients = _context.Pacients.ToList();
             return View(pacients);
         }
+
+        [Authorize(Roles = "Admin,Doctor,Nurses")]
         [HttpGet]
         public IActionResult Create()
         {
@@ -69,6 +72,22 @@ namespace Final___Lab2.Controllers
                 }
             }
             return uniqueFileName;
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            Pacient pacient = _context.Pacients.Where(p => p.Id == Id).FirstOrDefault();
+            return View(pacient);
+        }
+        [HttpPost]
+        public IActionResult Edit(Pacient pacient)
+        {
+            _context.Attach(pacient);
+            _context.Entry(pacient).State = EntityState.Modified;
+            _context.SaveChanges();
+            return RedirectToAction("index");
         }
     }
 }
